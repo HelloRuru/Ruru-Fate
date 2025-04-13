@@ -12,23 +12,19 @@
       background: linear-gradient(to bottom, #f6f9fc, #e9eff6);
       transition: background 0.3s, color 0.3s;
     }
-
     body.dark {
       background: #1e1e1e;
       color: #f0f0f0;
     }
-
     h1 {
       text-align: center;
       color: #2c3e50;
       font-size: 2rem;
       margin-bottom: 30px;
     }
-
     body.dark h1 {
       color: #f5f5f5;
     }
-
     .toggle-btn {
       position: fixed;
       top: 15px;
@@ -41,35 +37,44 @@
       cursor: pointer;
       z-index: 999;
     }
-
     .grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      grid-template-columns: 1fr;
       gap: 20px;
-      max-width: 1200px;
+      max-width: 1000px;
       margin: 0 auto;
     }
-
-    .card {
+    .pair-card {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
       background: #ffffff;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      padding: 15px;
-      text-align: center;
+      overflow: hidden;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
-
-    body.dark .card {
+    body.dark .pair-card {
       background: #2a2a2a;
-      box-shadow: 0 4px 12px rgba(255, 255, 255, 0.05);
     }
-
-    .card:hover {
+    .pair-card:hover {
       transform: translateY(-6px);
       box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
     }
-
-    .card img {
+    .character {
+      flex: 1 1 300px;
+      padding: 15px;
+      text-align: center;
+    }
+    .character h2 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      color: #34495e;
+    }
+    body.dark .character h2 {
+      color: #f0f0f0;
+    }
+    .character img {
       width: 100%;
       border-radius: 8px;
       max-height: 350px;
@@ -77,29 +82,15 @@
       transition: transform 0.3s ease;
       cursor: zoom-in;
     }
-
-    .card:hover img {
+    .character:hover img {
       transform: scale(1.05);
     }
-
-    .card h2 {
-      color: #34495e;
-      font-size: 1.1rem;
-      margin-bottom: 12px;
-    }
-
-    body.dark .card h2 {
-      color: #f0f0f0;
-    }
-
     .footer {
       text-align: center;
       color: #888;
       margin-top: 50px;
       font-size: 0.9rem;
     }
-
-    /* Lightbox overlay */
     .overlay {
       position: fixed;
       top: 0;
@@ -112,13 +103,11 @@
       justify-content: center;
       z-index: 1000;
     }
-
     .overlay img {
       max-width: 90vw;
       max-height: 90vh;
       border-radius: 12px;
     }
-
     .overlay.active {
       display: flex;
     }
@@ -128,69 +117,88 @@
   <button class="toggle-btn" onclick="toggleTheme()">夜間模式</button>
   <h1>Fate/Zero 御主與從者對照表</h1>
   <div class="grid">
-    <!-- 卡片資料區塊 -->
-    <!-- 範例一筆 -->
-    <div class="card">
-      <h2>Saber - 阿爾托莉雅・潘德拉剛</h2>
-      <img src="images/1.WEBP" alt="Saber" onclick="openPreview(this.src)">
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Saber - 阿爾托莉雅・潘德拉剛</h2>
+        <img src="images/1.WEBP" alt="Saber" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>衛宮切嗣</h2>
+        <img src="images/8.JPG" alt="衛宮切嗣" onclick="openPreview(this.src)">
+      </div>
     </div>
-    <div class="card">
-      <h2>Lancer - 迪盧木德</h2>
-      <img src="images/2.JPG" alt="Lancer" onclick="openPreview(this.src)">
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Lancer - 迪盧木德</h2>
+        <img src="images/2.JPG" alt="Lancer" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>凱尼斯</h2>
+        <img src="images/9.JPG" alt="凱尼斯" onclick="openPreview(this.src)">
+      </div>
     </div>
-    <div class="card">
-      <h2>Archer - 吉爾伽美什</h2>
-      <img src="images/3.PNG" alt="Archer" onclick="openPreview(this.src)">
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Archer - 吉爾伽美什</h2>
+        <img src="images/3.PNG" alt="Archer" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>遠坂時臣</h2>
+        <img src="images/10.PNG" alt="遠坂時臣" onclick="openPreview(this.src)">
+      </div>
     </div>
-    <div class="card">
-      <h2>Rider - 伊斯坎達爾</h2>
-      <img src="images/4.WEBP" alt="Rider" onclick="openPreview(this.src)">
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Rider - 伊斯坎達爾</h2>
+        <img src="images/4.WEBP" alt="Rider" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>韋伯・維爾維特</h2>
+        <img src="images/11.JPG" alt="韋伯・維爾維特" onclick="openPreview(this.src)">
+      </div>
     </div>
-    <div class="card">
-      <h2>Berserker - 蘭斯洛特</h2>
-      <img src="images/5.WEBP" alt="Berserker" onclick="openPreview(this.src)">
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Berserker - 蘭斯洛特</h2>
+        <img src="images/5.WEBP" alt="Berserker" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>間桐雁夜</h2>
+        <img src="images/12.JPG" alt="間桐雁夜" onclick="openPreview(this.src)">
+      </div>
     </div>
-    <div class="card">
-      <h2>Assassin - 百貌哈山</h2>
-      <img src="images/6.WEBP" alt="Assassin" onclick="openPreview(this.src)">
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Assassin - 百貌哈山</h2>
+        <img src="images/6.WEBP" alt="Assassin" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>言峰綺禮</h2>
+        <img src="images/13.WEBP" alt="言峰綺禮" onclick="openPreview(this.src)">
+      </div>
     </div>
-    <div class="card">
-      <h2>Caster - 吉爾・德・雷</h2>
-      <img src="images/7.WEBP" alt="Caster" onclick="openPreview(this.src)">
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Caster - 吉爾・德・雷</h2>
+        <img src="images/7.WEBP" alt="Caster" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>雨生龍之介</h2>
+        <img src="images/14.JPG" alt="雨生龍之介" onclick="openPreview(this.src)">
+      </div>
     </div>
-    <div class="card">
-      <h2>衛宮切嗣</h2>
-      <img src="images/8.JPG" alt="衛宮切嗣" onclick="openPreview(this.src)">
-    </div>
-    <div class="card">
-      <h2>凱尼斯</h2>
-      <img src="images/9.JPG" alt="凱尼斯" onclick="openPreview(this.src)">
-    </div>
-    <div class="card">
-      <h2>遠坂時臣</h2>
-      <img src="images/10.PNG" alt="遠坂時臣" onclick="openPreview(this.src)">
-    </div>
-    <div class="card">
-      <h2>韋伯・維爾維特</h2>
-      <img src="images/11.JPG" alt="韋伯・維爾維特" onclick="openPreview(this.src)">
-    </div>
-    <div class="card">
-      <h2>間桐雁夜</h2>
-      <img src="images/12.JPG" alt="間桐雁夜" onclick="openPreview(this.src)">
-    </div>
-    <div class="card">
-      <h2>言峰綺禮</h2>
-      <img src="images/13.WEBP" alt="言峰綺禮" onclick="openPreview(this.src)">
-    </div>
-    <div class="card">
-      <h2>雨生龍之介</h2>
-      <img src="images/14.JPG" alt="雨生龍之介" onclick="openPreview(this.src)">
-    </div>
+
   </div>
 
   <div class="footer">製作BY RURU｜金小美黨用愛發電</div>
 
-  <!-- Lightbox Overlay -->
   <div class="overlay" onclick="this.classList.remove('active')">
     <img id="previewImg" src="" />
   </div>
@@ -199,7 +207,6 @@
     function toggleTheme() {
       document.body.classList.toggle("dark");
     }
-
     function openPreview(src) {
       document.getElementById("previewImg").src = src;
       document.querySelector(".overlay").classList.add("active");
