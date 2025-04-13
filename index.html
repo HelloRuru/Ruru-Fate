@@ -47,4 +47,169 @@
     .pair-card {
       display: flex;
       flex-wrap: wrap;
-      justify-content: space
+      justify-content: space-between;
+      background: #ffffff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    body.dark .pair-card {
+      background: #2a2a2a;
+    }
+    .pair-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+    }
+    .character {
+      flex: 1 1 300px;
+      padding: 15px;
+      text-align: center;
+    }
+    .character h2 {
+      margin: 0 0 10px;
+      font-size: 1.1rem;
+      color: #34495e;
+    }
+    body.dark .character h2 {
+      color: #f0f0f0;
+    }
+    .character img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+      cursor: zoom-in;
+    }
+    .character:hover img {
+      transform: scale(1.05);
+    }
+    .footer {
+      text-align: center;
+      color: #888;
+      margin-top: 50px;
+      font-size: 0.9rem;
+    }
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.8);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+    }
+    .overlay img {
+      max-width: 90vw;
+      max-height: 90vh;
+      border-radius: 12px;
+    }
+    .overlay.active {
+      display: flex;
+    }
+  </style>
+</head>
+<body>
+  <button class="toggle-btn" onclick="toggleTheme()">夜間模式</button>
+  <h1>Fate/Zero 御主與從者對照表</h1>
+  <div class="grid">
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Saber - 阿爾托莉雅・潘德拉剛</h2>
+        <img src="images/1.WEBP" alt="Saber" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>衛宮切嗣</h2>
+        <img src="images/8.JPG" alt="衛宮切嗣" onclick="openPreview(this.src)">
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Lancer - 迪盧木德</h2>
+        <img src="images/2.JPG" alt="Lancer" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>凱尼斯</h2>
+        <img src="images/9.JPG" alt="凱尼斯" onclick="openPreview(this.src)">
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Archer - 吉爾伽美什</h2>
+        <img src="images/3.PNG" alt="Archer" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>遠坂時臣</h2>
+        <img src="images/10.PNG" alt="遠坂時臣" onclick="openPreview(this.src)">
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Rider - 伊斯坎達爾</h2>
+        <img src="images/4.WEBP" alt="Rider" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>韋伯・維爾維特</h2>
+        <img src="images/11.JPG" alt="韋伯・維爾維特" onclick="openPreview(this.src)">
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Berserker - 蘭斯洛特</h2>
+        <img src="images/5.WEBP" alt="Berserker" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>間桐雁夜</h2>
+        <img src="images/12.JPG" alt="間桐雁夜" onclick="openPreview(this.src)">
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Assassin - 百貌哈山</h2>
+        <img src="images/6.WEBP" alt="Assassin" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>言峰綺禮</h2>
+        <img src="images/13.WEBP" alt="言峰綺禮" onclick="openPreview(this.src)">
+      </div>
+    </div>
+
+    <div class="pair-card">
+      <div class="character">
+        <h2>Caster - 吉爾・德・雷</h2>
+        <img src="images/7.WEBP" alt="Caster" onclick="openPreview(this.src)">
+      </div>
+      <div class="character">
+        <h2>雨生龍之介</h2>
+        <img src="images/14.JPG" alt="雨生龍之介" onclick="openPreview(this.src)">
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer">製作BY RURU｜金小美黨用愛發電</div>
+
+  <div class="overlay" onclick="this.classList.remove('active')">
+    <img id="previewImg" src="" />
+  </div>
+
+  <script>
+    function toggleTheme() {
+      document.body.classList.toggle("dark");
+    }
+    function openPreview(src) {
+      document.getElementById("previewImg").src = src;
+      document.querySelector(".overlay").classList.add("active");
+    }
+  </script>
+</body>
+</html>
